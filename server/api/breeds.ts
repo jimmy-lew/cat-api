@@ -1,6 +1,21 @@
-// import { useFetch } from '#imports'
+const history: Record<string, any> = {};
+
+const rateLimit = (ip: string | undefined, timeout = 20 * 1000) => {
+    if (!ip) return
+    if (history[ip] > Date.now() - timeout) {
+    throw new Error("Rate Limit Exceeded");
+    }
+    history[ip] = Date.now();
+}
 
 export default defineEventHandler(async (event) => {
+    try {
+        const ip = event.node.req.socket.remoteAddress
+        rateLimit(ip)
+    }
+    catch (error) {
+        return { statusCode: 429, message: 'go fuck yourself' }
+    }
 
     const config = useRuntimeConfig()
 

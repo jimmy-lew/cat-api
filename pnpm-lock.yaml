@@ -1,7 +1,11 @@
 lockfileVersion: 5.4
 
 specifiers:
+  lambda-rate-limiter: ^3.0.1
   nuxt: 3.0.0
+
+dependencies:
+  lambda-rate-limiter: 3.0.1
 
 devDependencies:
   nuxt: 3.0.0
@@ -2585,6 +2589,13 @@ packages:
     resolution: {integrity: sha512-dWl0Dbjm6Xm+kDxhPQJsCBTxrJzuGl0aP9rhr+TG8D3l+GL90N8O8lYUi7dTSAN2uuDqCtNgb6aEuQH5wsiV8Q==}
     dev: true
 
+  /lambda-rate-limiter/3.0.1:
+    resolution: {integrity: sha512-1xm5KyqCV3WB1y/iBlvRn3cH53A88D+NP+zvY6HyAWj3W70IaiC+gGFu19TWBV9xjAEaRgWekP/gQP7RGn6LTg==}
+    engines: {node: '>= 12'}
+    dependencies:
+      lru-cache: 6.0.0
+    dev: false
+
   /lazystream/1.0.1:
     resolution: {integrity: sha512-b94GiNHQNy6JNTrt5w6zNyffMrNkXZb3KTkCZJb2V1xaEGCk093vkZ2jk3tpaeP33/OiXC+WvK9AxUebnf5nbw==}
     engines: {node: '>= 0.6.3'}
@@ -2689,7 +2700,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
-    dev: true
 
   /magic-string/0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
@@ -4564,7 +4574,6 @@ packages:
 
   /yallist/4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
-    dev: true
 
   /yaml/1.10.2:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
