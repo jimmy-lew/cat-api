@@ -25,7 +25,6 @@ export default defineEventHandler(async (event) => {
 
         const filteredRes = res.map((cat) => {
             const { id } = cat
-            console.log(id);
             return id
         })
         return filteredRes
