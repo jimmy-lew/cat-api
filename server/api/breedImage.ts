@@ -11,12 +11,12 @@ const rateLimit = (ip: string | undefined, timeout = 20 * 1000) => {
 }
 
 export default defineEventHandler(async (event) => {
+    const ip = event.node.req.socket.remoteAddress || ''
     try {
-        const ip = event.node.req.socket.remoteAddress
         rateLimit(ip)
     }
     catch (error) {
-        return { statusCode: 429, message: 'go fuck yourself' }
+        return { statusCode: 429, message: `Please wait another ${10 - (Math.abs(Date.now() - history[ip]) / 1000)}seconds` }
     }
 
     const { breed } = await getQuery(event)
