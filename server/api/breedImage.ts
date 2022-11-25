@@ -2,7 +2,7 @@
 
 const history: Record<string, any> = {};
 
-const rateLimit = (ip: string | undefined, timeout = 20 * 1000) => {
+const rateLimit = (ip: string | undefined, timeout = 2 * 1000) => {
     if (!ip) return
     if (history[ip] > Date.now() - timeout) {
     throw new Error("Rate Limit Exceeded");
@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
         rateLimit(ip)
     }
     catch (error) {
-        return { statusCode: 429, message: `Please wait another ${10 - (Math.abs(Date.now() - history[ip]) / 1000)}seconds` }
+        return { statusCode: 429, message: `Please wait another ${2 - (Math.abs(Date.now() - history[ip]) / 1000)}seconds` }
     }
 
     const { breed } = await getQuery(event)
