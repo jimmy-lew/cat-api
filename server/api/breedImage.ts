@@ -35,5 +35,8 @@ export default defineEventHandler(async (event) => {
         }
     })
 
-    return data
+    return {
+        statusCode: 200,
+        data
+    }
 })

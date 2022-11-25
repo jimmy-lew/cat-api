@@ -35,6 +35,9 @@ export default defineEventHandler(async (event) => {
         return filteredRes
     })
 
-    return data
+    return {
+        statusCode: 200,
+        data
+    }
   })
   
