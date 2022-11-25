@@ -19,7 +19,12 @@ export default defineEventHandler(async (event) => {
 
     const config = useRuntimeConfig()
 
-    const data = await $fetch(`https://api.thecatapi.com/v1/breeds?api_key=${config.apiKey}`).then((res: any) =>  {
+    const data = await $fetch(`https://api.thecatapi.com/v1/breeds`, {
+        headers: {
+            'x-api-key': config.apiKey
+        }
+    })
+    .then((res: any) =>  {
         
         if (!Array.isArray(res)) return
 

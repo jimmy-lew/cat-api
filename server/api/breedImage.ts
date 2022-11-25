@@ -29,7 +29,11 @@ export default defineEventHandler(async (event) => {
 
     const config = useRuntimeConfig()
 
-    const data = await $fetch(`https://api.thecatapi.com/v1/images/search?limit=10?breed_ids=${breed}?api_key=${config.apiKey}`)
+    const data = await $fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${breed}`, {
+        headers: {
+            'x-api-key': config.apiKey
+        }
+    })
 
     return data
 })
