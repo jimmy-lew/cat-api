@@ -2,5 +2,8 @@
 export default defineNuxtConfig({
     runtimeConfig: {
         apiKey: '',
+    },
+    routeRules: {
+        '/api/**': { cors: true },
     }
 })
